@@ -12,7 +12,7 @@ const storage = new CloudinaryStorage({
     cloudinary,
     params: (req, file) => {
         return {
-            folder: 'restaurantes',
+            folder: 'space-demons-3',
             allowed_formats: ['jpg', 'png'],
             public_id: `app-${file.originalname}`
         }
