@@ -20,6 +20,6 @@ router.post('/signup-user', signupProcessUser)
 
 router.get('/login', loginView)
 router.post('/login', loginProcess)
-// router.get('/profile', profileView)
-// router.post('/profile-picture', uploadPicture.single('image'), profilePicture)
+router.get('/profile', profileView)
+router.post('/profile-picture', uploadPicture.single('image'), profilePicture)
 module.exports = router;

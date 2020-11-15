@@ -31,7 +31,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(passport.initialize())
+app.use(passport.session())
+require('./config/session')(app)
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({

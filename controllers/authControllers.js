@@ -24,7 +24,7 @@ exports.signupProcessUser = async(req, res) => {
         name
     })
     await emailRegistro(email, name)
-    res.redirect('/')
+    res.redirect('/login')
 }
 
 exports.loginView = (req, res) => res.render('auth/login')
@@ -48,7 +48,7 @@ exports.profileView = async(req, res) => {
 
 exports.profilePicture = async(req, res) => {
     const id = req.session.passport.user
-
+    console.log(req.file.path);
     const picture = req.file.path
     await User.findByIdAndUpdate(id, { picture }, { new: true })
     res.redirect('profile')
