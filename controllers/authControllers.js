@@ -24,7 +24,7 @@ exports.signupProcessUser = async(req, res) => {
         name
     })
     await emailRegistro(email, name)
-    res.redirect('/login')
+    res.redirect('/')
 }
 
 exports.loginView = (req, res) => res.render('auth/login')
