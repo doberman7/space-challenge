@@ -10,11 +10,11 @@ exports.signupViewUser = (req, res) => res.render('auth/signupUser')
 exports.signupProcessUser = async(req, res) => {
     const { email, password, name } = req.body
     if (!email || !password) {
-        return res.render('auth/signupUser', { errorMessage: 'Por favor llena los campos' })
+        return res.render('auth/signupUser', { errorMessage: 'Please fill email and password ' })
     }
     const user = await User.findOne({ email })
     if (user) {
-        return res.render('auth/signupUser', { errorMessage: 'el usuario ya existe' })
+        return res.render('auth/signupUser', { errorMessage: 'user already exists' })
     }
     const salt = bcrypt.genSaltSync(12)
     const hashPass = bcrypt.hashSync(password, salt)
