@@ -4,17 +4,17 @@ const passport = require('../config/passport')
 const { emailRegistro } = require('../config/nodemailer')
 
 exports.indexView = (req, res) => res.render('index')
-// exports.signupViewComensal = (req, res) => res.render('auth/signupComensal')
+exports.signupViewUser = (req, res) => res.render('auth/signupUser')
 // exports.signupViewRestaurant = (req, res) => res.render('auth/signupRestaurant')
 
-exports.signupUser = async(req, res) => {
+exports.signupProcessUser = async(req, res) => {
     const { email, password, name } = req.body
     if (!email || !password) {
-        return res.render('auth/signupComensal', { errorMessage: 'Por favor llena los campos' })
+        return res.render('auth/signupUser', { errorMessage: 'Por favor llena los campos' })
     }
     const user = await User.findOne({ email })
     if (user) {
-        return res.render('auth/signupComensal', { errorMessage: 'el usuario ya existe' })
+        return res.render('auth/signupUser', { errorMessage: 'el usuario ya existe' })
     }
     const salt = bcrypt.genSaltSync(12)
     const hashPass = bcrypt.hashSync(password, salt)

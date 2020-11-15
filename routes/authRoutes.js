@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const { indexView} = require('../controllers/authControllers');
+const { indexView , signupViewUser} = require('../controllers/authControllers');
 const uploadPicture = require('../config/ cloudinary')
 
 const router = Router()
 router.get('/', indexView)
-// router.get('/signup-comensal', signupViewComensal);
+router.get('/signup-user', signupViewUser);
 // router.get('/signup-restaurant', signupViewRestaurant)
 // router.post('/signup', signupProcessComensal)
 // router.post('/signup-restaurant', signupProcessRestaurant)
