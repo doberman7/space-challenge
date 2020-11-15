@@ -9,12 +9,13 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 const passport = require('./config/passport')
+const log = require('chalk-animation');
 
 
 mongoose
   .connect('mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    log.rainbow(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -48,12 +49,12 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Space Demons 3';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+const authRoute = require('./routes/authRoutes');
+app.use('/', authRoute);
 
 
 module.exports = app;
