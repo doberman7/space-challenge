@@ -56,7 +56,7 @@ app.locals.title = 'Space Demons 3';
 //rutas
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);
-//rutas  games
+//rutas games
 // const gameRoutes = require('./routes/gameRoutes');
 // app.use('/game', authRoutes);
 
