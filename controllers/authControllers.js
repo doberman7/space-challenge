@@ -48,8 +48,9 @@ exports.loginProcess = passport.authenticate('local', {
 })
 
 exports.logout = (req, res) => {
-  req.logout()
-  res.redirect('/login')
+  req.logout();//NOt working
+  req.session.destroy();
+  res.redirect('/');
 }
 
 exports.profileView = async (req, res) => {
@@ -69,18 +70,18 @@ exports.profileView = async (req, res) => {
 //   res.redirect('profile')
 // }
 
-exports.profilePicture=(req, res) => {
+exports.profilePicture = (req, res) => {
   const id = req.session.passport.user
   const picture = req.file.path
   User.findByIdAndUpdate(id, {
-    picture
-  }, {
-    new: true
-  })
-  .then(() => {
-    res.redirect('profile')
-  })
-  .catch(
-    res.redirect('profile')
-  );
+      picture
+    }, {
+      new: true
+    })
+    .then(() => {
+      res.redirect('profile')
+    })
+    .catch(
+      res.redirect('profile')
+    );
 }
