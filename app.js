@@ -53,7 +53,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Space DemonsS 3 dont brake with errors';
+app.locals.title = 'ahhhh';
 //rutas
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);

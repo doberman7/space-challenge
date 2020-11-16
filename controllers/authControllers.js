@@ -9,6 +9,37 @@ exports.indexView = (req, res) => res.render('index')
 exports.signupViewUser = (req, res) => res.render('auth/signupUser')
 // exports.signupViewRestaurant = (req, res) => res.render('auth/signupRestaurant')
 
+// exports.signupProcessUser = async (req, res) => {
+//   const {
+//     email,
+//     password,
+//     name
+//   } = req.body
+//   if (!email || !password) {
+//     return res.render('auth/signupUser', {
+//       errorMessage: 'Please fill email and password '
+//     })
+//   }
+//   const user = await User.findOne({
+//     email
+//   })
+//   if (user) {
+//     return res.render('auth/signupUser', {
+//       errorMessage: 'user already exists'
+//     })
+//   }
+//   const salt = bcrypt.genSaltSync(12)
+//   const hashPass = bcrypt.hashSync(password, salt)
+//   await User.create({
+//     email,
+//     password: hashPass,
+//     name
+//   })
+//   //esto es de nodemailer
+//   await emailRegistro(email, name)
+//   res.redirect('/login')
+// }
+
 exports.signupProcessUser = async (req, res) => {
   const {
     email,
@@ -36,8 +67,10 @@ exports.signupProcessUser = async (req, res) => {
     name
   })
   //esto es de nodemailer
-  await emailRegistro(email, name)
-  res.redirect('/login')
+  .then(()=>{
+    emailRegistro(email, name)
+    res.redirect('/login')
+  }).catch(err=>{console.log(err);})
 }
 
 exports.loginView = (req, res) => res.render('auth/login')
@@ -45,7 +78,7 @@ exports.loginView = (req, res) => res.render('auth/login')
 exports.loginProcess = passport.authenticate('local', {
   successRedirect: '/profile',
   failureRedirect: '/login',
-   failureFlash: true
+  failureFlash: true
 })
 
 exports.logout = (req, res) => {
