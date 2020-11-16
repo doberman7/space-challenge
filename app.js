@@ -10,7 +10,7 @@ const logger = require('morgan');
 const path = require('path');
 const passport = require('./config/passport')
 const log = require('chalk-animation');
-
+const flash = require('connect-flash');
 
 mongoose
   // .connect('mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
@@ -34,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash());
 require('./config/session')(app)
 // Express View engine setup
 
@@ -52,7 +53,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Space DemonsSSSSS 3';
+app.locals.title = 'Space DemonsS 3';
 //rutas
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "run": "nodemon ./bin/www",
     "start": "node ./bin/www",
     "dev": "DEBUG=space-demons-3:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
@@ -12,6 +13,7 @@
     "body-parser": "^1.18.3",
     "chalk-animation": "^1.6.0",
     "cloudinary": "^1.23.0",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",

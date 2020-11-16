@@ -44,7 +44,8 @@ exports.loginView = (req, res) => res.render('auth/login')
 exports.loginProcess = passport.authenticate('local', {
   successRedirect: '/profile',
   failureRedirect: '/login',
-  failureFlash: true
+  failureFlash: true,
+  errorMessage: 'Invalid username or password.'
 })
 
 exports.logout = (req, res) => {
