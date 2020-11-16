@@ -9,6 +9,8 @@ exports.indexView = (req, res) => res.render('index')
 exports.signupViewUser = (req, res) => res.render('auth/signupUser')
 // exports.signupViewRestaurant = (req, res) => res.render('auth/signupRestaurant')
 
+
+//signUp asyn Await
 // exports.signupProcessUser = async (req, res) => {
 //   const {
 //     email,
@@ -74,7 +76,7 @@ exports.signupProcessUser = async (req, res) => {
 }
 
 // exports.loginView = (req, res) => res.render('auth/login')
-exports.loginView = (req, res) => { res.render("auth/login", { errorMessage: "try again"})}
+exports.loginView = (req, res) => { res.render("auth/login", { errorMessage: "Not loged yet"})}
 // exports.loginView = (req, res) => { res.render("auth/login",  {
 //    error: req.flash("error")
 //  })}
