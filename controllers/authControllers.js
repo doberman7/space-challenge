@@ -35,6 +35,7 @@ exports.signupProcessUser = async (req, res) => {
     password: hashPass,
     name
   })
+  //esto es de nodemailer
   await emailRegistro(email, name)
   res.redirect('/login')
 }
