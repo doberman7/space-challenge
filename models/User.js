@@ -8,7 +8,7 @@ const userSchema = new Schema({
     },
     password: String,
     name: String,
-    picture: { type: String, default: 'https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png' },
+    picture: { type: String, default: 'https://memegenerator.net/img/instances/67438689/oh-great-im-a-profile-photo.jpg' },
     facebookID: String,
     // githubID: String,
 }, {
