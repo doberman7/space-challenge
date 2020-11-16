@@ -48,15 +48,25 @@ exports.loginProcess = passport.authenticate('local', {
 })
 
 exports.logout = (req, res) => {
-  req.logout();//NOt working
+  req.logout(); //NOt working
   req.session.destroy();
   res.redirect('/');
 }
 
 exports.profileView = async (req, res) => {
-  const id = req.session.passport.user
-  const user = await User.findById(id)
-  res.render('profile', user)
+  try {
+    const id = req.session.passport.user
+    const user = await User.findById(id)
+    res.render('profile', user)
+  } catch (e) {
+    console.error(e);
+    res.render('index', {
+      errorMessage: 'Please fill email and password '
+    });
+  } finally {
+    console.log('We do cleanup here');
+  }
+
 }
 
 // exports.profilePicture = async (req, res) => {
