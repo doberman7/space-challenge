@@ -42,8 +42,8 @@ exports.signupProcessUser = async (req, res) => {
 exports.loginView = (req, res) => res.render('auth/login')
 
 exports.loginProcess = passport.authenticate('local', {
-  successRedirect: 'profile',
-  failureRedirect: 'login',
+  successRedirect: '/profile',
+  failureRedirect: '/login',
   failureFlash: true
 })
 
