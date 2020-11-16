@@ -52,11 +52,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // default value for title local
 app.locals.title = 'Space Demons 3';
-
-
-
-const authRoute = require('./routes/authRoutes');
-app.use('/', authRoute);
+//rutas
+const authRoutes = require('./routes/authRoutes');
+app.use('/', authRoutes);
+//rutas games
+const gameRoutes = require('./routes/gameRoutes');
+app.use('/game', authRoutes);
 
 
 module.exports = app;
