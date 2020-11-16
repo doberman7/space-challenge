@@ -13,7 +13,8 @@ const log = require('chalk-animation');
 
 
 mongoose
-  .connect('mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
+  // .connect('mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.DB || 'mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     log.rainbow(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
