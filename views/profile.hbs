@@ -1,7 +1,19 @@
 <h1>{{name}}</h1>
-<img src="{{picture}}" alt="foto de perfil"/>
+<img src="{{picture}}" alt="foto de perfil" />
 <form action="/profile-picture" enctype="multipart/form-data" method="post">
 
-  <input type="file" name="image" />
-  <input type="submit" />
+  <input type="file" name="image" id="imageURL"/>
+  <input type="submit" id="submit"/>
 </form>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $("#submit").hide();
+  $("#imageURL").on("change", function(){
+      $("#submit").show();
+  })
+
+</script>
