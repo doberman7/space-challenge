@@ -58,8 +58,9 @@ app.locals.title = 'Doing game';
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);
 //rutas games
-// const gameRoutes = require('./routes/gameRoutes');
-// app.use('/game', authRoutes);
+const gameRoutes = require('./routes/gameRoutes');
+console.log(authRoutes);
+app.use('/game', gameRoutes);
 
 
 module.exports = app;

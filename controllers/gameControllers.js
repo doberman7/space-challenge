@@ -1,4 +1,4 @@
-exports.gameViewUser = (req, res) => res.render('games/game')
+exports.ViewCreateGame = (req, res) => res.render('games/game')
 
 // exports.profilePicture = (req, res) => {
 //   const id = req.session.passport.user
