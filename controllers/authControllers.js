@@ -71,12 +71,13 @@ exports.signupProcessUser = async (req, res) => {
   //esto es de nodemailer
   .then(()=>{
     emailRegistro(email, name)
-    res.redirect('/login')
+    res.render('auth/login',{infoFlash: "Welcome"})
   }).catch(err=>{console.log(err);})
 }
 
 // exports.loginView = (req, res) => res.render('auth/login')
 exports.loginView = (req, res) => {
+  console.log(req.session);
   res.render("auth/login", { "errorMessage": req.flash("error") });
 }
 // exports.loginView = (req, res) => { res.render("auth/login",  {

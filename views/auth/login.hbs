@@ -4,9 +4,14 @@
         {{errorMessage}}
     </div>
   {{/if}}
-  {{#if failureFlash}}
-    <div class="alert alert-danger" role="alert">
-        {{failureFlash}}
+  {{#if infoFlash}}
+    <div class="alert alert-info" role="alert">
+        {{infoFlash}}
+    </div>
+  {{/if}}
+  {{#if error}}
+    <div class="alert alert-warning" role="alert">
+        {{error}}
     </div>
   {{/if}}
   <div class="form-group">
