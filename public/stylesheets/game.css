@@ -1,5 +1,6 @@
 #game{
   background-image: url(../images/fondo.jpg);
+  color: whitesmoke
 }
 #board{
   text-align: center;
