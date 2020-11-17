@@ -13,7 +13,7 @@ function generateInvaders() {
     p1.img.src = '../images/nave1Dead2.png'
   }
   //boss
-  if (score > 3 && score < 10 ) {
+  if (score > 3 && score > 10 ) {
     invaders.push(new Nave4($canvas.width * 0.4, 0))
 
   }
@@ -109,9 +109,10 @@ function gameover(){
   setInterval(function(){
     clearInterval(intervalId);
   }, 3000);
-  setInterval(function(){
-    location.reload();
-  }, 3500);
+  //RELOAD, cancel cuz sttuck the server
+  // setInterval(function(){
+  //   location.reload();
+  // }, 3500);
   ;
 }
 

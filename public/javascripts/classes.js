@@ -382,7 +382,7 @@ class InvadersShots{
     this.width = 8
     this.height = 15
     this.img = new Image()
-    this.img.src = './images/lasers.png'
+    this.img.src = '../images/lasers.png'
   }
   draw() {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
