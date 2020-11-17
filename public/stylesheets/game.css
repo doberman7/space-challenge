@@ -1,4 +1,6 @@
 #game{
   background-image: url(../images/fondo.jpg);
+}
+#board{
   text-align: center;
 }

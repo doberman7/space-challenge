@@ -418,12 +418,12 @@ class StartBoard {
     ctx.drawImage(this.imgArrows,550,460,150, 150)
     ctx.drawImage(this.imgSpace,125,500,180,80)
     ctx.drawImage(this.imgFondoStart,0,0,$canvas.width,420)
-    ctx.fillStyle="black"
-    ctx.fillRect(0,340,400,80)
-    ctx.font="18px Arial"
-    ctx.fillStyle="white"
-    ctx.fillText("A través de la galaxia, el jugador se embarca ",5,360)
-    ctx.fillText("en una misión para eliminar a los demonios",5,380)
-    ctx.fillText("intergalácticos que se atraviesan a su paso.",5,400)
+    // ctx.fillStyle="black"
+    // ctx.fillRect(0,340,400,80)
+    // ctx.font="18px Arial"
+    // ctx.fillStyle="white"
+    // ctx.fillText("A través de la galaxia, el jugador se embarca ",5,360)
+    // ctx.fillText("en una misión para eliminar a los demonios",5,380)
+    // ctx.fillText("intergalácticos que se atraviesan a su paso.",5,400)
   }
 }
