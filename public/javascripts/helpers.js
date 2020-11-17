@@ -197,7 +197,7 @@ function removeInvader(invader){
 
   const index=invaders.indexOf(invader)
   invaders.splice(index,1)
-  console.log(invader)
+  // console.log(invader)
 }
 
 function clearElements() {
