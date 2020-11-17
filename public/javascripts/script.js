@@ -19,13 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   export const addTodo = async todo => {
+  // module.exports let addTodo = async todo => {
     try {
-      const res = await axios.post(`ssss/create`, todo);
-      const addedTodo = res.data;
+      const res = await axios.post(`/create`, todo);
+      // const addedTodo = res.data;
 
-      console.log(`Added a new Todo!`, addedTodo);
+      // console.log(`Added a new Todo!`, addedTodo);
+      console.log(`Added a new Todo!`);
 
-      return addedTodo;
     } catch (e) {
       console.error(e);
     }
