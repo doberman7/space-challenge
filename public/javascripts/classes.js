@@ -5,7 +5,7 @@ class Board {
     this.width = $canvas.width
     this.height = $canvas.height
     this.img = new Image()
-    this.img.src = './images/meteors.png'
+    this.img.src = '../images/meteors.png'
     this.img.onload = () => {
       this.draw()
     }
@@ -27,7 +27,7 @@ class MotherShip {
     this.width = 100
     this.height = 60
     this.img = new Image()
-    this.img.src = "./images/nave1.png"
+    this.img.src = "../images/nave1.png"
     this.vel = 10
     this.isAlive = true
   }
@@ -122,7 +122,7 @@ class Nave1 extends MotherShip {
     this.x = $canvas.width * .4
     this.y = $canvas.height * .9
     this.img = new Image()
-    this.img.src = './images/nave1.png'
+    this.img.src = '../images/nave1.png'
     this.touched = false
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
@@ -174,7 +174,7 @@ class Nave2 extends MotherShip {
     this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
-    this.img.src = './images/nave2.png'
+    this.img.src = '../images/nave2.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -199,7 +199,7 @@ class Nave3 extends MotherShip {
     this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
-    this.img.src = './images/nave3.png'
+    this.img.src = '../images/nave3.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -224,7 +224,7 @@ class Nave4 extends MotherShip {
     this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
-    this.img.src = './images/nave4.png'
+    this.img.src = '../images/nave4.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -248,7 +248,7 @@ class Nave5 extends MotherShip {
     this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
-    this.img.src = './images/nave5.png'
+    this.img.src = '../images/nave5.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -307,7 +307,7 @@ class Nave6 extends MotherShip {
     this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
-    this.img.src = './images/nave6.png'
+    this.img.src = '../images/nave6.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -363,7 +363,7 @@ class Shots {
     this.width = 8
     this.height = 15
     this.img = new Image()
-    this.img.src = './images/bullet.png'
+    this.img.src = '../images/bullet.png'
   }
   draw() {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
@@ -402,11 +402,11 @@ class StartBoard {
     this.height = $canvas.height
     this.fillStyle=`rgba(255,255,255,0.5)`
     this.imgArrows = new Image()
-    this.imgArrows.src = './images/keyArrows2.png'
+    this.imgArrows.src = '../images/keyArrows2.png'
     this.imgSpace = new Image()
-    this.imgSpace.src = './images/spacebarIcon.png'
+    this.imgSpace.src = '../images/spacebarIcon.png'
     this.imgFondoStart= new Image()
-    this.imgFondoStart.src='./images/spaceDemons.png'
+    this.imgFondoStart.src='../images/spaceDemons.png'
   }
   draw() {
     ctx.fillStyle=this.fillStyle

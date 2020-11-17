@@ -10,7 +10,7 @@ function generateInvaders() {
   }
   //si mueres animacion de morir
   if (p1.isAlive ===false) {
-    p1.img.src = './images/nave1Dead2.png'
+    p1.img.src = '../images/nave1Dead2.png'
   }
   //boss
   if (score > 3 && score < 10 ) {
