@@ -76,7 +76,9 @@ exports.signupProcessUser = async (req, res) => {
 }
 
 // exports.loginView = (req, res) => res.render('auth/login')
-exports.loginView = (req, res) => { res.render("auth/login", { errorMessage: "Not loged yet"})}
+exports.loginView = (req, res) => {
+  res.render("auth/login", { "errorMessage": req.flash("error") });
+}
 // exports.loginView = (req, res) => { res.render("auth/login",  {
 //    error: req.flash("error")
 //  })}
