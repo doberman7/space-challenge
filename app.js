@@ -61,6 +61,9 @@ app.use('/', authRoutes);
 const gameRoutes = require('./routes/gameRoutes');
 app.use('/game', gameRoutes);
 
+const challengeRoutes = require('./routes/challengeRoutes');
+app.use('/challenge', challengeRoutes);
+
 
 module.exports = app;
 

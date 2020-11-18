@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema({
-  idChallenger: type: Schema.Types.ObjectId,
-  idChallenged: type: Schema.Types.ObjectId,
+  idChallenger: Schema.Types.ObjectId,
+  idChallenged: Schema.Types.ObjectId,
   time: Number,
   score: Number,
   hasBeenBeated: Boolean
