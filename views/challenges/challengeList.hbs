@@ -6,9 +6,9 @@
 {{/if}}
 {{#each challenges}}
   <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="{{userCreator.picture}}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{idChallenger}}</h5>
+    <h5 class="card-title">Challenge created By {{userCreator.name}}</h5>
     <p class="card-text">Challenge send to {{userChallenged}}</p>
     <a href="#" class="btn btn-primary">Detalles</a>
   </div>

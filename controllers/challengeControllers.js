@@ -22,10 +22,12 @@ exports.createChallenge = async (req, res) => {
       userChallenged: email,
       time: time,
       score: score,
-      hasBeenBeated: false
+      hasBeenBeated: false,
+      userCreator: user,
     })
     //encontrar los challenges del usuario en cuestion
-    const challenges = await Challenge.find({ idChallenger: user }).exec();
+    const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
+    await console.log(challenges);
     //si el challenge puede ser creado
     return res.render('challenges/challengeList', {
       infoFlash: "challenge Created",
