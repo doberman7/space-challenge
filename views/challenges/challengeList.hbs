@@ -18,7 +18,9 @@
   <div class="card-body">
     <h5 class="card-title">Challenge created By {{userCreator.name}}</h5>
     <p class="card-text">Challenge send to {{userChallenged}}</p>
-    <a href="#" class="btn btn-primary">Detalles</a>
+    <form class="" action="/challenge/update" method="post">
+        <input type="submit" class="btn btn-primary" />
+    </form>
   </div>
 </div>
 {{/each}}

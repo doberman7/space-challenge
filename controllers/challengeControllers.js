@@ -28,7 +28,6 @@ exports.createChallenge = async (req, res) => {
     })
     //encontrar los challenges del usuario en cuestion
     const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
-    await console.log(challenges);
     //si el challenge puede ser creado
     return res.render('challenges/challengeList', {
       infoFlash: "challenge Created",
@@ -46,16 +45,21 @@ exports.createChallenge = async (req, res) => {
 exports.readAllChallenges = async (req, res) => {
   const id = req.session.passport.user
   const user = await User.findById(id)
-  console.log(user);
+
   const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
-  console.log(challenges);
+
   res.render('challenges/challengeList', {challenges:challenges})
 
 }
 
 
 exports.updateChallenge = async (req, res) => {
-
+  const {score, email,time} = req.body
+  const id = req.session.passport.user
+  const user = await User.findById(id)
+  const challengeUpdated = await Challenge.findByIdAndUpdate(id, { $set: { time: time, score: score, email: email }},()=>{
+    console.log("k");
+  })
 }
 
 exports.deleteChallenge = async (req, res) => {
