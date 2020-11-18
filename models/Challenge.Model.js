@@ -5,8 +5,8 @@ const userSchema = new Schema({
   userChallenged: String,
   time: Number,
   score: Number,
-  hasBeenBeated: Boolean
-  user: { type: Schema.Types.ObjectId, ref: 'User' }
+  hasBeenBeated: Boolean,
+  userCreator: { type: Schema.Types.ObjectId, ref: 'User' }
 
 }, {
     timestamps: true
