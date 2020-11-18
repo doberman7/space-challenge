@@ -1,7 +1,11 @@
 <head>
 
 </head>
-
+{{#if infoFlash}}
+  <div class="alert alert-info" role="alert">
+      {{infoFlash}}
+  </div>
+{{/if}}
 <a href="/profile"><button type="button" class="btn btn-warning">My profile</button></a>
 
   <body id="game">
