@@ -12,8 +12,7 @@
 <br>
 <a href="/logout"><button type="button" class="btn btn-danger">logout</button>
 </a>
-
-<form class="form-inline" action="/challenge/update" method="POST">
+<form class="form-inline" action="/challenge/update/{{challenge._id}}" method="POST">
   <label class="sr-only" for="createChallenge"></label>
   <input type="number" name="time" class="form-control mb-2 mr-sm-2" id="createChallengeTime" placeholder="How many seconds">
 

@@ -57,17 +57,28 @@ exports.readAllChallenges = async (req, res) => {
 
 
 exports.viewChallenge = async (req, res) => {
-  res.render('challenges/edit')
+
+    try {
+      const idChallenge = req.params.id
+      const challenge = await Challenge.findById(idChallenge)
+      res.render('challenges/edit',{challenge})
+    } catch (e) {
+      console.error(e);
+
+    } finally {
+
+    }
 }
 
 exports.updateChallenge = async (req, res) => {
-
   const {score, email,time} = req.body
   const id = req.session.passport.user
   const user = await User.findById(id)
-  console.log(user);
+  const idChallenge = req.params.id
+
+  // console.log(idChallenge);
   const challengeUpdated = await Challenge.findByIdAndUpdate(
-    id, { $set: { time: time, score: score, email: email }})
+    idChallenge, { $set: { time: time, score: score, email: email }})
 
   const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
   res.render('challenges/challengeList')
