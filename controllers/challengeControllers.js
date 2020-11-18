@@ -4,8 +4,10 @@ const Challenge = require('../models/Challenge.Model')
 exports.createChallenge = async(req, res) => {
     let {user} = req.session.passport
     let {time,email} = req.body
-    console.log(time,email,user);
-
+    if (time != "" && email != "" && user != "" ) {
+      console.log("DATA:",time,email,user);
+      {infoFlash: "challenge Created"}
+    }
     // User.create({
     //   email,
     //   password: hashPass,
@@ -16,5 +18,5 @@ exports.createChallenge = async(req, res) => {
     //   emailRegistro(email, name)
     //   res.render('auth/login',{infoFlash: "Welcome"})
     // }).catch(err=>{console.log(err);})
-    res.render('games/game',{infoFlash: "challenge Created"})
+    res.render('games/game')
 }
