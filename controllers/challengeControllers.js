@@ -62,12 +62,11 @@ exports.updateChallenge = async (req, res) => {
   const id = req.session.passport.user
   const user = await User.findById(id)
   const challengeUpdated = await Challenge.findByIdAndUpdate(
-    id, { $set: { time: time, score: score, email: email }},
-    ()=>{
+    id, { $set: { time: time, score: score, email: email }})
 
-    console.log("k");
-  })
-  res.render('challenges/update')
+  const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
+  console.log(challenge);
+  res.render('challenges/challengeList')
 }
 
 exports.deleteChallenge = async (req, res) => {

@@ -7,6 +7,6 @@ router.post('/create',createChallenge)
 router.get('/readAll',readAllChallenges)
 
 router.get('/edit/:id',viewChallenge)
-router.post('/edit',updateChallenge)
+router.post('/update',updateChallenge)
 
 module.exports = router

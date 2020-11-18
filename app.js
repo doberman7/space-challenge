@@ -14,7 +14,7 @@ const flash = require('connect-flash');
 
 mongoose
   // .connect('mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
-  .connect(process.env.DB || 'mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.DB || 'mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(x => {
     log.rainbow(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
