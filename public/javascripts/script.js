@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const formEvent = form.addEventListener('submit', async event => {
     event.preventDefault();
 
-    const title = document.querySelector('#new-todos__title').value;
-    const userId = document.querySelector('#new-todos__userId').value;
+    const title = document.querySelector('#createChallenge').value;
+    const userId = document.querySelector('#createChallenge').value;
 
     const todo = {
       title,

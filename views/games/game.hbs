@@ -3,35 +3,49 @@
 </head>
 {{#if infoFlash}}
   <div class="alert alert-info" role="alert">
-      {{infoFlash}}
+    {{infoFlash}}
   </div>
 {{/if}}
 <a href="/profile"><button type="button" class="btn btn-warning">My profile</button></a>
 
-  <body id="game">
-    <h1>Game Create</h1>
-    <div class="container text-center" id="board">
-      <canvas id="canvas" width="800" height="600"></canvas>
-      <div class="row">
-        <div class="col text-center">
+<body id="game">
+  <!-- <h1>Game Create</h1> -->
+  <div class="container text-center" id="board">
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <div class="row">
+      <div class="col text-center">
 
-          <button class="btn btn-primary btn-lg" id="start">Start Game</button>
-          <br>
-          <br>
-          <a href="/game/create"><button class="btn btn-danger">Reiniciar</button></a>
-        </div>
+        <button class="btn btn-primary btn-lg" id="start">Start Game</button>
+        <br>
+        <br>
+        <a href="/game/create"><button class="btn btn-danger">Reiniciar</button></a>
       </div>
     </div>
+  </div>
 
-    <br>
-    <!-- POST to Create Challenge  -->
-    <form action="/challenge/create" method="post">
-    <label>
-      Time
-      <input type="text" name="time"id="new-todos__name" />
-    </label>
+  <br>
+  <!-- POST to Create Challenge  -->
+  <div class="container">
 
-    <button type="submit">Add</button>
+
+    <!-- .. -->
+    <form class="form-inline" action="/challenge/create" method="POST">
+      <label class="sr-only" for="createChallenge">Time</label>
+      <input type="text" name="time" class="form-control mb-2 mr-sm-2" id="createChallengeTime" placeholder="Set the seconds of the challenge">
+
+      <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+      <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="text" name="email" class="form-control" id="createChallengeName" placeholder="Add a friends mail">
+      </div>
+
+      <button type="submit" class="btn btn-success mb-2">Create Challenge</button>
+    </form>
+
+  </div>
+
   <!-- </form> -->
 
-  </body>
+</body>
