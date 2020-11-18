@@ -1,16 +1,23 @@
-<h1>{{name}}</h1>
-<img src="{{picture}}" alt="foto de perfil" />
-<form action="/profile-picture" enctype="multipart/form-data" method="post">
 
-  <input type="file" name="image" id="imageURL"/>
-  <input type="submit" id="submit"/>
-</form>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{picture}}" alt="user image profile">
+  <div class="card-body">
+    <h5 class="card-title">USER: {{name}}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <form action="/profile-picture" enctype="multipart/form-data" method="post">
 
-<a href="/game/create"><button type="button" class="btn btn-dark">Game Create View</button>
+      <input type="file" name="image" id="imageURL"/>
+      <input type="submit" id="submit"/>
+    </form>
+  </div>
+</div>
+
+
+<a href="/game/create"><button type="button" class="btn btn-success">Go Play</button>
 </a>
 <br>
 <br>
-<a href="/logout"><button type="button" class="btn btn-light">logout</button>
+<a href="/logout"><button type="button" class="btn btn-danger">logout</button>
 </a>
 
 <script
