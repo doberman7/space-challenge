@@ -54,13 +54,6 @@ exports.readAllChallenges = async (req, res) => {
 
 
 exports.viewChallenge = async (req, res) => {
-  console.log(req.params.id);
-  // const {score, email,time} = req.body
-  // const id = req.session.passport.user
-  // const user = await User.findById(id)
-  // const challengeUpdated = await Challenge.findByIdId(
-  //   id, { $set: { time: time, score: score, email: email }}
-  // })
   res.render('challenges/edit')
 }
 
