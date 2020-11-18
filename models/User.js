@@ -9,8 +9,8 @@ const userSchema = new Schema({
     password: String,
     name: String,
     picture: { type: String, default: 'https://memegenerator.net/img/instances/67438689/oh-great-im-a-profile-photo.jpg' },
-    facebookID: String,
-    // githubID: String,
+    challengesCreated: [{ type: Schema.Types.ObjectId, ref: 'Challenge' }]
+
 }, {
     timestamps: true
 })

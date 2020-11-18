@@ -6,6 +6,7 @@ const userSchema = new Schema({
   time: Number,
   score: Number,
   hasBeenBeated: Boolean
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
 
 }, {
     timestamps: true
