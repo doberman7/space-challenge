@@ -60,7 +60,7 @@ exports.viewChallenge = async (req, res) => {
   // const challengeUpdated = await Challenge.findByIdId(
   //   id, { $set: { time: time, score: score, email: email }}
   // })
-  res.render('challenges/update')
+  res.render('challenges/edit')
 }
 
 exports.updateChallenge = async (req, res) => {
