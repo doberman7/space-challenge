@@ -112,17 +112,6 @@ exports.profileView = async (req, res) => {
 
 }
 
-// exports.profilePicture = async (req, res) => {
-//   const id = req.session.passport.user
-//   const picture = req.file.path
-//   await User.findByIdAndUpdate(id, {
-//     picture
-//   }, {
-//     new: true
-//   })
-//   res.redirect('profile')
-// }
-
 exports.profilePicture = (req, res) => {
   const id = req.session.passport.user
   const picture = req.file.path

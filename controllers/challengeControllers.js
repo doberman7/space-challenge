@@ -46,9 +46,10 @@ exports.createChallenge = async (req, res) => {
 exports.readAllChallenges = async (req, res) => {
   const id = req.session.passport.user
   const user = await User.findById(id)
-  const challenges = await Challenge.find(user)
-    console.log(challenges);
-    res.render('challenges/challengeList')
+  console.log(user);
+  const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
+  console.log(challenges);
+  res.render('challenges/challengeList', {challenges:challenges})
 
 }
 
