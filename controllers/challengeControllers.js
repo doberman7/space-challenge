@@ -15,12 +15,14 @@ exports.createChallenge = async(req, res) => {
       hasBeenBeated: false
     })
     .then(()=>{
+
+
       console.log("CREATION SUCCESFULL")
+      //si el challenge puede ser creado
+      return res.render('challenges/challengeList',{infoFlash: "challenge Created"})
     }).catch(err=>{
       console.log("DURING CREATION:",err);
     })
-    //si el challenge puede ser creado
-    return res.render('challenges/challengeList',{infoFlash: "challenge Created"})
   } else {
 
     return res.render('games/game', {infoFlash: "challenge NOT created, missing info"})
