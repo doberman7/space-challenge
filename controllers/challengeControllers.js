@@ -3,20 +3,23 @@ const Challenge = require('../models/Challenge.Model')
 
 exports.createChallenge = async(req, res) => {
     let {user} = req.session.passport
-    let {time,email} = req.body
-    if (time != "" && email != "" && user != "" ) {
+    let {time,email,score} = req.body
+    if (time != "" && email != "" && user != "" && score != "" ) {
       console.log("DATA:",time,email,user);
-      {infoFlash: "challenge Created"}
-    }
-    // User.create({
-    //   email,
-    //   password: hashPass,
-    //   name
-    // })
-    // //esto es de nodemailer
-    // .then(()=>{
-    //   emailRegistro(email, name)
-    //   res.render('auth/login',{infoFlash: "Welcome"})
-    // }).catch(err=>{console.log(err);})
-    res.render('games/game')
+
+    Challenge.create({
+      idChallenger: user,
+      userChallenged: email,
+      time: time,
+      score: score,
+      hasBeenBeated: false
+    })
+    .then(()=>{
+      console.log("CREATION SUCCESFULL")
+    }).catch(err=>{
+      console.log("DURING CREATION:",err);
+    })
+    res.render('games/game',{infoFlash: "challenge Created"})
+  }
+  res.render('games/game')
 }
