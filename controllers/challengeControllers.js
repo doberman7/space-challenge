@@ -18,7 +18,7 @@ exports.createChallenge = async (req, res) => {
     score != ""
   ) {
 
-    await Challenge.create({
+    let newChallenge = await Challenge.create({
       idChallenger: user,
       userChallenged: email,
       time: time,
@@ -26,6 +26,9 @@ exports.createChallenge = async (req, res) => {
       hasBeenBeated: false,
       userCreator: user,
     })
+    const userToUpdated = await User.findByIdAndUpdate(user)
+    await userToUpdated.challengesCreated.push(newChallenge)
+    console.log(userToUpdated);
     //encontrar los challenges del usuario en cuestion
     const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
     //si el challenge puede ser creado
@@ -58,14 +61,15 @@ exports.viewChallenge = async (req, res) => {
 }
 
 exports.updateChallenge = async (req, res) => {
+
   const {score, email,time} = req.body
   const id = req.session.passport.user
   const user = await User.findById(id)
+  console.log(user);
   const challengeUpdated = await Challenge.findByIdAndUpdate(
     id, { $set: { time: time, score: score, email: email }})
 
   const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
-  console.log(challenge);
   res.render('challenges/challengeList')
 }
 
