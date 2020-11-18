@@ -1,11 +1,13 @@
-const {  Router} = require('express');
-const {createChallenge} = require('../controllers/challengeControllers');
+const {Router} = require('express');
+const {createChallenge,readAllChallenges} = require('../controllers/challengeControllers');
 const router = Router()
-// const {
-//   Router
-// } = require('express');
-console.log(createChallenge);
+
+// console.log(createChallenge);
 router.post('/create',createChallenge)
 // router.get('/create',createChallenge)
+
+router.get('/create',readAllChallenges)
+
+
 
 module.exports = router

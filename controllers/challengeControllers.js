@@ -19,7 +19,30 @@ exports.createChallenge = async(req, res) => {
     }).catch(err=>{
       console.log("DURING CREATION:",err);
     })
-    res.render('games/game',{infoFlash: "challenge Created"})
+    //si el challenge puede ser creado
+    return res.render('challenges/challengeList',{infoFlash: "challenge Created"})
+  } else {
+
+    return res.render('games/game', {infoFlash: "challenge NOT created, missing info"})
+
   }
-  res.render('games/game')
+
+}
+
+
+exports.readAllChallenges = async(req,res)=>{
+  console.log(req.session);
+  // Challenge.find({
+  //   email
+  // });
+
+}
+
+
+exports.updateChallenge = async(req,res)=>{
+
+}
+
+exports.deleteChallenge = async(req,res)=>{
+
 }

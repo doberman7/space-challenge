@@ -2,12 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const form = document.querySelector('form');
-
+  //this for the axios call to the demon challenge sended by mail
   const formEvent = form.addEventListener('submit', async event => {
-    // event.preventDefault();
-
-    const title = document.querySelector('#createChallenge').value;
-    const userId = document.querySelector('#createChallenge').value;
+  const title = document.querySelector('#createChallenge').value;
+  const userId = document.querySelector('#createChallenge').value;
 
     // const todo = {
     //   email,
@@ -20,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   export const addTodo = async todo => {
-  // module.exports let addTodo = async todo => {
+    // module.exports let addTodo = async todo => {
     try {
       // const res = await axios.post(`/create`, todo);
       // const addedTodo = res.data;
