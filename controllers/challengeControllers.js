@@ -60,6 +60,7 @@ exports.updateChallenge = async (req, res) => {
   const challengeUpdated = await Challenge.findByIdAndUpdate(id, { $set: { time: time, score: score, email: email }},()=>{
     console.log("k");
   })
+  res.render('challenges/update')
 }
 
 exports.deleteChallenge = async (req, res) => {
