@@ -17,14 +17,6 @@ exports.createChallenge = async (req, res) => {
     score != ""
   ) {
 
-  if (typeof time == String || typeof score == String) {
-    return res.render('games/game', {
-      infoFlash: "challenge NOT created, use numbers"
-    })
-  }
-
-
-
     await Challenge.create({
       idChallenger: user,
       userChallenged: email,
@@ -32,8 +24,8 @@ exports.createChallenge = async (req, res) => {
       score: score,
       hasBeenBeated: false
     })
-
-    const challenges = await Challenge.find()
+    //encontrar los challenges del usuario en cuestion
+    const challenges = await Challenge.find({ idChallenger: user }).exec();
     //si el challenge puede ser creado
     return res.render('challenges/challengeList', {
       infoFlash: "challenge Created",
@@ -48,12 +40,8 @@ exports.createChallenge = async (req, res) => {
 
 }
 
-
 exports.readAllChallenges = async (req, res) => {
   console.log(req.session);
-  // Challenge.find({
-  //   email
-  // });
 
 }
 
