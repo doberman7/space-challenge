@@ -12,3 +12,21 @@
 <br>
 <a href="/logout"><button type="button" class="btn btn-danger">logout</button>
 </a>
+
+<form class="form-inline" action="/challenge/update" method="POST">
+  <label class="sr-only" for="createChallenge"></label>
+  <input type="number" name="time" class="form-control mb-2 mr-sm-2" id="createChallengeTime" placeholder="How many seconds">
+
+  <label class="sr-only" for="createChallenge"></label>
+  <input type="number" name="score" class="form-control mb-2 mr-sm-2" id="createChallengeScore" placeholder="Score to beat">
+
+  <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">@</div>
+    </div>
+    <input type="email" name="email" class="form-control" id="createChallengeName" placeholder="Add a friends mail">
+  </div>
+
+  <button type="submit" class="btn btn-success mb-2">Edit Challenge</button>
+</form>

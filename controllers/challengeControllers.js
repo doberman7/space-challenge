@@ -53,11 +53,24 @@ exports.readAllChallenges = async (req, res) => {
 }
 
 
+exports.viewChallenge = async (req, res) => {
+  // const {score, email,time} = req.body
+  // const id = req.session.passport.user
+  // const user = await User.findById(id)
+  // const challengeUpdated = await Challenge.findByIdId(
+  //   id, { $set: { time: time, score: score, email: email }}
+  // })
+  res.render('challenges/update')
+}
+
 exports.updateChallenge = async (req, res) => {
   const {score, email,time} = req.body
   const id = req.session.passport.user
   const user = await User.findById(id)
-  const challengeUpdated = await Challenge.findByIdAndUpdate(id, { $set: { time: time, score: score, email: email }},()=>{
+  const challengeUpdated = await Challenge.findByIdAndUpdate(
+    id, { $set: { time: time, score: score, email: email }},
+    ()=>{
+
     console.log("k");
   })
   res.render('challenges/update')
