@@ -26,9 +26,9 @@ exports.createChallenge = async (req, res) => {
       hasBeenBeated: false,
       userCreator: user,
     })
-    const userToUpdated = await User.findByIdAndUpdate(user)
-    await userToUpdated.challengesCreated.push(newChallenge)
-    console.log(userToUpdated);
+    const userToUpdated = await User.findByIdAndUpdate(user,{$push:{challengesCreated:newChallenge}},{new:true})
+    // await userToUpdated.challengesCreated.push(newChallenge)
+    await console.log(userToUpdated,newChallenge);
     //encontrar los challenges del usuario en cuestion
     const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
     //si el challenge puede ser creado
