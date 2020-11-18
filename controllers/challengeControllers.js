@@ -1,4 +1,5 @@
 const Challenge = require('../models/Challenge.Model')
+const User = require('../models/User')
 
 
 exports.createChallenge = async (req, res) => {
@@ -43,7 +44,11 @@ exports.createChallenge = async (req, res) => {
 }
 
 exports.readAllChallenges = async (req, res) => {
-  console.log(req.session);
+  const id = req.session.passport.user
+  const user = await User.findById(id)
+  const challenges = await Challenge.find(user)
+    console.log(challenges);
+    res.render('challenges/challengeList')
 
 }
 
