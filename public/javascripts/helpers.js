@@ -13,7 +13,7 @@ function generateInvaders() {
     p1.img.src = '../images/nave1Dead2.png'
   }
   //boss
-  if (score > 3 && score > 10 ) {
+  if (score == 3 || score == 10 || score > 20 ) {
     invaders.push(new Nave4($canvas.width * 0.4, 0))
 
   }

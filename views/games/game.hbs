@@ -9,25 +9,36 @@
 <a href="/profile"><button type="button" class="btn btn-warning">My profile</button></a>
 
 <body id="game">
-  <!-- <h1>Game Create</h1> -->
-  <div class="container text-center" id="board">
-    <canvas id="canvas" width="800" height="600"></canvas>
-    <div class="row">
-      <div class="col text-center">
+  <div class="container" id="whiteLeterZone">
 
-        <button class="btn btn-primary btn-lg" id="start">Start Game</button>
-        <br>
-        <br>
-        <a href="/game/create"><button class="btn btn-danger">Reiniciar</button></a>
+      <!-- <h1>Game Create</h1> -->
+      <div class="container text-center" id="board">
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <div class="row">
+          <div class="col text-center">
+
+            <button class="btn btn-primary btn-lg" id="start">Start Game</button>
+            <br>
+            <br>
+            <a href="/game/create"><button class="btn btn-danger">Reiniciar</button></a>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <br>
+      <!-- POST to Create Challenge  -->
+
+
+      <!-- </form> -->
+
+
   </div>
+  <div class="container" id="createChallengeForm">
 
-  <br>
-  <!-- POST to Create Challenge  -->
+    <div class="jumbotron jumbotron-fluid">
   <div class="container">
-
-
+    <h1 class="display-4">Challenge your friends</h1>
+    <p class="lead">Send a space Demons challenge by mail to your enemies or friends </p>
     <!-- .. -->
     <form class="form-inline" action="/challenge/create" method="POST">
       <label class="sr-only" for="createChallenge"></label>
@@ -46,9 +57,10 @@
 
       <button type="submit" class="btn btn-success mb-2">Create Challenge</button>
     </form>
+  </div>
+</div>
+
 
   </div>
-
-  <!-- </form> -->
 
 </body>

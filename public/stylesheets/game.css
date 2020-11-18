@@ -1,5 +1,7 @@
 #game{
   background-image: url(../images/fondo.jpg);
+}
+#whiteLeterZone{
   color: whitesmoke
 }
 #board{
