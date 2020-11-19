@@ -95,13 +95,17 @@ exports.deleteChallenge = async (req, res) => {
 exports.sendChallengeEmil = async (req, res)=>{
   const idUser = req.session.passport.user
   const user = await User.findById(idUser)
-  //cómo encontrar esto
   const idChallenge = req.params.id
-  console.log(idChallenge);
-  const challenge = await Challenge.findById(idChallenge)
-  //send mail
-  await emailSendChallenge(challenge.userChallenged, challenge)
-  //mostrar challenges
-  const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
-  res.render('challenges/challengeList',{challenges,infoFlash:"Challenge send"})
+  try {
+    const challenge = await Challenge.findById(idChallenge)
+    //send mail
+    await emailSendChallenge(challenge.userChallenged, challenge)
+
+  } catch (e) {
+    console.log(e);
+  } finally {
+    //mostrar challenges
+    const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
+    res.render('challenges/challengeList',{challenges,infoFlash:"Challenge send"})
+  }
 }
