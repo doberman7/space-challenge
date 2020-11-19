@@ -1,19 +1,19 @@
 const nodemailer = require('nodemailer')
 
 let transporter = nodemailer.createTransport({
-    service: 'hotmail.com',
-    auth: {
-        user: process.env.NODEMAILER_MAIL,
-        pass: process.env.NODEMAILER_PASS
-    }
+  service: 'hotmail.com',
+  auth: {
+    user: process.env.NODEMAILER_MAIL,
+    pass: process.env.NODEMAILER_PASS
+  }
 })
 
 exports.emailRegistro = (email, name) => {
-    return transporter.sendMail({
-        from: 'ivanrubioangeles@hotmail.com',
-        to: email,
-        subject: 'Bienvenido a space Demons 3',
-        html: `
+  return transporter.sendMail({
+    from: 'ivanrubioangeles@hotmail.com',
+    to: email,
+    subject: 'Welcome to challenge Space',
+    html: `
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -29,20 +29,20 @@ exports.emailRegistro = (email, name) => {
           <title>Document</title>
         </head>
         <body>
-        <h1 class="title">Hi ${name} Welcome to space Demons 3</h1>
-        <p > the hardest game ever </p>
+        <h1 class="title">Hi ${name} Welcome to challenge Space</h1>
+        <p > the hardest challenge ever </p>
         </body>
         </html>
     `
-    })
+  })
 }
 
-exports.emailReseña = (name, email, restaurantName) => {
-    return transporter.sendMail({
-        from: 'Hackerman',
-        to: email,
-        subject: 'reseña',
-        html: `
+exports.emailSendChallenge = (name, email, challenge) => {
+  return transporter.sendMail({
+    from: 'ivanrubioangeles@hotmail.com',
+    to: email,
+    subject: 'You have recibe a challenge Space',
+    html: `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -58,9 +58,12 @@ exports.emailReseña = (name, email, restaurantName) => {
         <title>Document</title>
       </head>
       <body>
-      <h1 class="title">Hola ${name} tu restaurante ${restaurantName} recibió una nueva reseña</h1>
+      <h1 class="title">Hi you have recibed a challenge</h1>
+      <p class="title">
+        The challenge is beat the score of ${challenge.score} under ${challenge.time} seconds
+      </p>
       </body>
       </html>
   `
-    })
+  })
 }
