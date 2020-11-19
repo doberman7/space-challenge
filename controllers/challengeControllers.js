@@ -100,12 +100,11 @@ exports.sendChallengeEmil = async (req, res)=>{
     const challenge = await Challenge.findById(idChallenge)
     //send mail
     await emailSendChallenge(challenge.userChallenged, challenge)
-
-  } catch (e) {
-    console.log(e);
-  } finally {
     //mostrar challenges
     const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
     res.render('challenges/challengeList',{challenges,infoFlash:"Challenge send"})
-  }
+
+  } catch (e) {
+    console.log(e);
+  } 
 }
