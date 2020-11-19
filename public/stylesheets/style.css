@@ -15,3 +15,8 @@ a {
   color: white;
   background-image: url(../images/profileBody.jpg);
 }
+
+#myChallengeBody{
+  /* color: white; */
+  background-image: url(../images/myChallengeBody.png);
+}

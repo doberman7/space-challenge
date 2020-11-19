@@ -1,27 +1,31 @@
-<h1>Challenge Created List</h1>
-{{#if infoFlash}}
-  <div class="alert alert-info" role="alert">
-    {{infoFlash}}
-  </div>
-{{/if}}
-<a href="/game/create"><button type="button" class="btn btn-success">Go Play</button>
-</a>
-<a href="/profile"><button type="button" class="btn btn-warning">My profile</button></a>
+<body id="myChallengeBody">
 
-<a href="/logout"><button type="button" class="btn btn-dark">logout</button>
-</a>
-{{#each challenges}}
-  <div class="card" style="width: 18rem;">
-  <!-- <img class="card-img-top" src="{{userCreator.picture}}" alt="Card image cap"> -->
-  <div class="card-body">
-    <!-- <h5 class="card-title">Challenge created By {{userCreator.name}}</h5> -->
-    <p class="card-text">Challenge send to <b>{{userChallenged}}</b></p>
-    <p class="card-text">Seconds to beat <b>{{time}}</b></p>
-    <p class="card-text">Score to beat <b>{{score}}</b></p>
-    <p class="card-text">The challenge has it been exceeded?<b>{{hasBeenBeated}}</b></p>
+  <h1 style="color:white">Challenge Created List</h1>
+  {{#if infoFlash}}
+    <div class="alert alert-info" role="alert">
+      {{infoFlash}}
+    </div>
+  {{/if}}
+  <a href="/game/create"><button type="button" class="btn btn-success">Go Play</button>
+  </a>
+  <a href="/profile"><button type="button" class="btn btn-warning">My profile</button></a>
 
-    <a href="/challenge/edit/{{id}}" class="btn btn-primary">edit</a>
-    <a href="/challenge/sendChallenge/{{id}}" class="btn btn-success">send Challenge</a>
+  <a href="/logout"><button type="button" class="btn btn-dark">logout</button>
+  </a>
+  {{#each challenges}}
+    <div class="card" style="width: 18rem;">
+    <!-- <img class="card-img-top" src="{{userCreator.picture}}" alt="Card image cap"> -->
+    <div class="card-body">
+      <!-- <h5 class="card-title">Challenge created By {{userCreator.name}}</h5> -->
+      <p class="card-text">Challenge send to <b>{{userChallenged}}</b></p>
+      <p class="card-text">Seconds to beat <b>{{time}}</b></p>
+      <p class="card-text">Score to beat <b>{{score}}</b></p>
+      <p class="card-text">The challenge has it been exceeded?<b>{{hasBeenBeated}}</b></p>
+
+      <a href="/challenge/edit/{{id}}" class="btn btn-primary">edit</a>
+      <a href="/challenge/sendChallenge/{{id}}" class="btn btn-success">send Challenge</a>
+    </div>
   </div>
-</div>
-{{/each}}
+  {{/each}}
+
+</body>
