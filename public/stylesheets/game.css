@@ -7,3 +7,17 @@
 #board{
   text-align: center;
 }
+#editChallengeBody{
+  color: white;
+  background-image: url(../images/editChallengeBody.png);
+}
+
+#profileBody{
+  color: white;
+  background-image: url(../images/profileBody.jpg);
+}
+
+#myChallengeBody{
+  /* color: white; */
+  background-image: url(../images/myChallengeBody.png);
+}
