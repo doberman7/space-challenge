@@ -10,3 +10,8 @@ a {
   color: white;
   background-image: url(../images/editChallengeBody.png);
 }
+
+#profileBody{
+  color: white;
+  background-image: url(../images/profileBody.jpg);
+}
