@@ -51,7 +51,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-const challengeRoutes = require('./routes/challengeRoutes');
+const challengeRoutes = require('./routes/challengeRoutes1');
 const gameRoutes = require('./routes/gameRoutes');
 const authRoutes = require('./routes/authRoutes');
 

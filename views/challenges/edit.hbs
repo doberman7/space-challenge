@@ -28,12 +28,12 @@
   <button type="submit" class="btn btn-success mb-2">Update Challenge</button>
 </form>
 
-<a href="/challenge/delete">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 
-    Delete Challenge
-  </button>
-</a>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+
+  Delete Challenge
+</button>
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -50,7 +50,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <a href="/challenge/delete">
+          <button type="button" class="btn btn-primary">Delete Challenge</button>
+        </a>
+
       </div>
     </div>
   </div>
