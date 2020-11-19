@@ -62,6 +62,9 @@ exports.emailSendChallenge = ( email, challenge) => {
       <p class="title">
         The challenge is beat the score of ${challenge.score} under ${challenge.time} seconds
       </p>
+      <p>Probe you can beat the challenge signIn on Space challenge at</p>
+      <a href="https://space-demons3.herokuapp.com/">Space Challenge</a>
+
       </body>
       </html>
   `
