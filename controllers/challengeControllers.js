@@ -81,7 +81,7 @@ exports.updateChallenge = async (req, res) => {
     idChallenge, { $set: { time: time, score: score, email: email }})
 
   const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
-  res.render('challenges/challengeList')
+  res.render('challenges/challengeList',{challenges})
 }
 
 exports.deleteChallenge = async (req, res) => {
