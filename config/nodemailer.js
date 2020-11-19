@@ -1,6 +1,9 @@
 const nodemailer = require('nodemailer')
 
 let transporter = nodemailer.createTransport({
+  host: "smtp.ethereal.email",
+  port: 587,
+  secure: false,
   service: 'hotmail.com',
   auth: {
     user: process.env.NODEMAILER_MAIL,
@@ -10,7 +13,7 @@ let transporter = nodemailer.createTransport({
 
 exports.emailRegistro = (email, name) => {
   return transporter.sendMail({
-    from: 'ivanrubioangeles@hotmail.com',
+    from: 'spacechallenge@hotmail.com',
     to: email,
     subject: 'Welcome to challenge Space',
     html: `
@@ -37,9 +40,9 @@ exports.emailRegistro = (email, name) => {
   })
 }
 
-exports.emailSendChallenge = ( email, challenge) => {
+exports.emailSendChallenge = (email, challenge) => {
   return transporter.sendMail({
-    from: 'ivanrubioangeles@hotmail.com',
+    from: 'spacechallenge@hotmail.com',
     to: email,
     subject: 'You have recibe a challenge Space',
     html: `
