@@ -12,17 +12,17 @@
 </a>
 <form class="form-inline" action="/challenge/update/{{challenge._id}}" method="POST">
   <label class="sr-only" for="updateChallenge"></label>
-  <input type="number" name="time" class="form-control mb-2 mr-sm-2" id="createChallengeTime" placeholder="How many seconds" value="{{challenge.time}}">
+  <input type="number" name="time" class="form-control mb-2 mr-sm-2" id="" placeholder="How many seconds" value="{{challenge.time}}">
 
   <label class="sr-only" for="updateChallenge"></label>
-  <input type="number" name="score" class="form-control mb-2 mr-sm-2" id="createChallengeScore" placeholder="Score to beat" value="{{challenge.score}}">
+  <input type="number" name="score" class="form-control mb-2 mr-sm-2" id="" placeholder="Score to beat" value="{{challenge.score}}">
 
   <label class="sr-only" for="updateChallenge"></label>
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
       <div class="input-group-text">@</div>
     </div>
-    <input type="email" name="email" class="form-control" id="createChallengeName" placeholder="Add a friends mail" value="{{challenge.userChallenged}}">
+    <input type="email" name="email" class="form-control" id="" placeholder="Add a friends mail" value="{{challenge.userChallenged}}">
   </div>
 
   <button type="submit" class="btn btn-success mb-2">Update Challenge</button>

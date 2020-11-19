@@ -76,9 +76,10 @@ exports.updateChallenge = async (req, res) => {
   const id = req.session.passport.user
   const user = await User.findById(id)
   const idChallenge = req.params.id
-
+  console.log(email);
   const challengeUpdated = await Challenge.findByIdAndUpdate(
-    idChallenge, {   time,  score, email },{new:true})
+    //DONT UPDATE EMAIL
+    idChallenge, {   time,  score, userChallenged:email },{new:true})
   //mostrar challenges
   const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
   res.render('challenges/challengeList',{challenges})

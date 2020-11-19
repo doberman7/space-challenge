@@ -116,3 +116,12 @@ exports.editProfile = async (req, res) => {
   // await emailRegistro(email, name)
   res.render('profile', user)
 }
+
+exports.deleteProfile = async (req, res) => {
+  const userId = req.session.passport.user
+  // const user = await User.findById(idUser)
+
+  await User.deleteOne({ userId });
+  //mostrar challenges
+  res.redirect('/')
+}
