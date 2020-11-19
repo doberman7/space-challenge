@@ -42,7 +42,7 @@ exports.signupProcessUser = async (req, res) => {
 }
 
 exports.loginView = (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
   res.render("auth/login", { "errorMessage": req.flash("error") });
 }
 
@@ -105,7 +105,6 @@ exports.editProfile = async (req, res) => {
   }
   const salt = bcrypt.genSaltSync(12)
   const hashPass = bcrypt.hashSync(password, salt)
-  console.log(hashPass);
   const user = await User.findOneAndUpdate(userId, {
     email,
     password:hashPass,
@@ -119,9 +118,9 @@ exports.editProfile = async (req, res) => {
 
 exports.deleteProfile = async (req, res) => {
   const userId = req.session.passport.user
-  // const user = await User.findById(idUser)
-
-  await User.deleteOne({ userId });
-  //mostrar challenges
+  const user = await User.findById(userId)
+  console.log(user);
+  let userDeleted = await User.deleteOne({ _id: userId });
+  console.log("DELETED",userDeleted);
   res.redirect('/')
 }
