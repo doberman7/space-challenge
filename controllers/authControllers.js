@@ -37,7 +37,7 @@ exports.signupProcessUser = async (req, res) => {
   //esto es de nodemailer
   .then(()=>{
     emailRegistro(email, name)
-    res.render('auth/login',{infoFlash: "Welcome"})
+    res.render('auth/login',{infoFlash: "Welcome, please login"})
   }).catch(err=>{console.log(err);})
 }
 
@@ -105,7 +105,7 @@ exports.editProfile = async (req, res) => {
   }
   const salt = bcrypt.genSaltSync(12)
   const hashPass = bcrypt.hashSync(password, salt)
-  const user = await User.findOneAndUpdate(userId, {
+  const user = await User.findByIdAndUpdate(userId, {
     email,
     password:hashPass,
     name},

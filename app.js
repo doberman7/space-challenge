@@ -11,6 +11,9 @@ const path = require('path');
 const passport = require('./config/passport')
 const log = require('chalk-animation');
 const flash = require('connect-flash');
+const challengeRoutes = require('./routes/challengeRoutes');
+const gameRoutes = require('./routes/gameRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 mongoose
   // .connect('mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
@@ -55,13 +58,13 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Space Challenge';
 //rutas
-const authRoutes = require('./routes/authRoutes');
+//const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);
 //rutas games
-const gameRoutes = require('./routes/gameRoutes');
+//const gameRoutes = require('./routes/gameRoutes');
 app.use('/game', gameRoutes);
-
-const challengeRoutes = require('./routes/challengeRoutes');
+//ERROR of deploy Error: Cannot find module './routes/challengeRoutes'
+// const challengeRoutes = require('./routes/challengeRoutes');
 app.use('/challenge', challengeRoutes);
 
 
