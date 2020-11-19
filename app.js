@@ -11,9 +11,7 @@ const path = require('path');
 const passport = require('./config/passport')
 const log = require('chalk-animation');
 const flash = require('connect-flash');
-const challengeRoutes = require('./routes/challengeRoutes');
-const gameRoutes = require('./routes/gameRoutes');
-const authRoutes = require('./routes/authRoutes');
+
 
 mongoose
   // .connect('mongodb://localhost/space-demons-3', {useNewUrlParser: true, useUnifiedTopology: true })
@@ -53,7 +51,9 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
+const challengeRoutes = require('./routes/challengeRoutes');
+const gameRoutes = require('./routes/gameRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 // default value for title local
 app.locals.title = 'Space Challenge';
