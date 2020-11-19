@@ -6,3 +6,7 @@ a {
   color: #00B7FF; }
 
 /*# sourceMappingURL=style.css.map */
+#editChallengeBody{
+  color: white;
+  background-image: url(../images/editChallengeBody.png);
+}

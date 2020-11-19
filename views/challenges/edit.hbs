@@ -1,66 +1,69 @@
-<h1>Edit challenge</h1>
-{{#if infoFlash}}
-  <div class="alert alert-info" role="alert">
-    {{infoFlash}}
-  </div>
-{{/if}}
-<a href="/game/create"><button type="button" class="btn btn-success">Go Play</button>
-</a>
-<a href="/profile"><button type="button" class="btn btn-warning">My profile</button></a>
-
-<a href="/logout"><button type="button" class="btn btn-dark">logout</button>
-</a>
-
-
-
-<form class="form-group" action="/challenge/update/{{challenge._id}}" method="POST">
-  <label class="" for="updateChallenge">Time on seconds</label>
-  <input type="number" name="time" class="form-control" id="" placeholder="How many seconds" value="{{challenge.time}}">
-
-  <label class="" for="updateChallenge">Score</label>
-  <input type="number" name="score" class="form-control" id="" placeholder="Score to beat" value="{{challenge.score}}">
-
-  <label class="" for="updateChallenge">The challenge has it been exceeded?</label>
-  <input type="text" name="hasBeenBeated" class="form-control" id="" placeholder="Has it been exceeded??" value="{{challenge.hasBeenBeated}}">
-
-  <label class="" for="updateChallenge">Email</label>
-  <div class="input-group mb-2 mr-sm-2">
-    <div class="input-group-prepend">
-      <div class="input-group-text">@</div>
+<body id="editChallengeBody">
+  <h1>Edit challenge</h1>
+  {{#if infoFlash}}
+    <div class="alert alert-info" role="alert">
+      {{infoFlash}}
     </div>
-    <input type="email" name="email" class="form-control" id="" placeholder="Add a friends mail" value="{{challenge.userChallenged}}">
-  </div>
+  {{/if}}
+  <a href="/game/create"><button type="button" class="btn btn-success">Go Play</button>
+  </a>
+  <a href="/profile"><button type="button" class="btn btn-warning">My profile</button></a>
 
-  <button type="submit" class="btn btn-success mb-2">Update Challenge</button>
-</form>
-
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-
-  Delete Challenge
-</button>
+  <a href="/logout"><button type="button" class="btn btn-dark">logout</button>
+  </a>
 
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <form class="form-group" action="/challenge/update/{{challenge._id}}" method="POST">
+    <label class="" for="updateChallenge">Time on seconds</label>
+    <input type="number" name="time" class="form-control" id="" placeholder="How many seconds" value="{{challenge.time}}">
+
+    <label class="" for="updateChallenge">Score</label>
+    <input type="number" name="score" class="form-control" id="" placeholder="Score to beat" value="{{challenge.score}}">
+
+    <label class="" for="updateChallenge">The challenge has it been exceeded?</label>
+    <input type="text" name="hasBeenBeated" class="form-control" id="" placeholder="Has it been exceeded??" value="{{challenge.hasBeenBeated}}">
+
+    <label class="" for="updateChallenge">Email</label>
+    <div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a href="/challenge/delete">
-          <button type="button" class="btn btn-primary">Delete Challenge</button>
-        </a>
+      <input type="email" name="email" class="form-control" id="" placeholder="Add a friends mail" value="{{challenge.userChallenged}}">
+    </div>
 
+    <button type="submit" class="btn btn-success mb-2">Update Challenge</button>
+  </form>
+
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+
+    Delete Challenge
+  </button>
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="/challenge/delete">
+            <button type="button" class="btn btn-primary">Delete Challenge</button>
+          </a>
+
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+</body>
