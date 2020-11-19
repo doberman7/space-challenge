@@ -9,7 +9,8 @@ const {
   profileView,
   loginProcess,
   signupProcessUser,
-  logout
+  logout,
+  editProfile
 } = require('../controllers/authControllers');
 const uploadPicture = require('../config/cloudinary')
 
@@ -23,5 +24,6 @@ router.post('/login', loginProcess)
 router.get('/profile', profileView)
 router.post('/profile-picture', uploadPicture.single('image'), profilePicture)
 router.get('/logout', logout)
+router.post('/editProfile',editProfile)
 
 module.exports = router;

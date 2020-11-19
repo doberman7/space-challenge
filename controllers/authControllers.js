@@ -7,40 +7,6 @@ const {
 
 exports.indexView = (req, res) => res.render('index')
 exports.signupViewUser = (req, res) => res.render('auth/signupUser')
-// exports.signupViewRestaurant = (req, res) => res.render('auth/signupRestaurant')
-
-
-//signUp asyn Await
-// exports.signupProcessUser = async (req, res) => {
-//   const {
-//     email,
-//     password,
-//     name
-//   } = req.body
-//   if (!email || !password) {
-//     return res.render('auth/signupUser', {
-//       errorMessage: 'Please fill email and password '
-//     })
-//   }
-//   const user = await User.findOne({
-//     email
-//   })
-//   if (user) {
-//     return res.render('auth/signupUser', {
-//       errorMessage: 'user already exists'
-//     })
-//   }
-//   const salt = bcrypt.genSaltSync(12)
-//   const hashPass = bcrypt.hashSync(password, salt)
-//   await User.create({
-//     email,
-//     password: hashPass,
-//     name
-//   })
-//   //esto es de nodemailer
-//   await emailRegistro(email, name)
-//   res.redirect('/login')
-// }
 
 exports.signupProcessUser = async (req, res) => {
   const {
@@ -75,14 +41,10 @@ exports.signupProcessUser = async (req, res) => {
   }).catch(err=>{console.log(err);})
 }
 
-// exports.loginView = (req, res) => res.render('auth/login')
 exports.loginView = (req, res) => {
   console.log(req.session);
   res.render("auth/login", { "errorMessage": req.flash("error") });
 }
-// exports.loginView = (req, res) => { res.render("auth/login",  {
-//    error: req.flash("error")
-//  })}
 
 exports.loginProcess = passport.authenticate('local', {
   successRedirect: '/profile',
@@ -107,7 +69,7 @@ exports.profileView = async (req, res) => {
       errorMessage: 'Please fill email and password '
     });
   } finally {
-    console.log('We do cleanup here');
+    console.log('End ProfileView');
   }
 
 }
@@ -126,4 +88,31 @@ exports.profilePicture = (req, res) => {
     .catch(
       res.redirect('profile')
     );
+}
+
+exports.editProfile = async (req, res) => {
+  const {
+    email,
+    password,
+    name
+  } = req.body
+  //obtener userId
+  const userId = req.session.passport.user
+  if (!email || !password) {
+    return res.render('profile', {
+      errorMessage: 'Please fill email and password '
+    })
+  }
+  const salt = bcrypt.genSaltSync(12)
+  const hashPass = bcrypt.hashSync(password, salt)
+  console.log(hashPass);
+  const user = await User.findOneAndUpdate(userId, {
+    email,
+    password:hashPass,
+    name},
+    {new:true}
+  )
+  //esto es de nodemailer
+  // await emailRegistro(email, name)
+  res.render('profile', user)
 }
