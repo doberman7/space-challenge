@@ -70,13 +70,13 @@ exports.viewChallenge = async (req, res) => {
 }
 
 exports.updateChallenge = async (req, res) => {
-  const {score, email,time} = req.body
+  const {score, email,time,hasBeenBeated} = req.body
   const id = req.session.passport.user
   const user = await User.findById(id)
   const idChallenge = req.params.id
   const challengeUpdated = await Challenge.findByIdAndUpdate(
     //DONT UPDATE EMAIL
-    idChallenge, {   time,  score, userChallenged:email },{new:true})
+    idChallenge, {   time,  score, userChallenged:email,hasBeenBeated },{new:true})
   //mostrar challenges
   const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
   res.render('challenges/challengeList',{challenges})
