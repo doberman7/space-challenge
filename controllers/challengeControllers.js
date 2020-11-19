@@ -79,10 +79,10 @@ exports.updateChallenge = async (req, res) => {
   // console.log(idChallenge);
   const challengeUpdated = await Challenge.findByIdAndUpdate(
     idChallenge, {   time,  score, email },{new:true})
-  console.log(score);
-  console.log(email);
-  console.log(time);
-  console.log(challengeUpdated);
+  // console.log(score);
+  // console.log(email);
+  // console.log(time);
+  // console.log(challengeUpdated);
   const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
   res.render('challenges/challengeList',{challenges})
 }
