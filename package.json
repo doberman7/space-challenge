@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "run": "nodemon ./bin/www",
+    
     "start": "node ./bin/www",
     "dev": "DEBUG=space-demons-3:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
