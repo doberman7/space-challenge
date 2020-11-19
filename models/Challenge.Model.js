@@ -5,7 +5,7 @@ const userSchema = new Schema({
   userChallenged: String,
   time: Number,
   score: Number,
-  hasBeenBeated: Boolean,
+  hasBeenBeated: {type : String, default: "nop"},
   userCreator: { type: Schema.Types.ObjectId, ref: 'User' }
 
 }, {

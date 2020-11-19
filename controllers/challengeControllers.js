@@ -23,7 +23,6 @@ exports.createChallenge = async (req, res) => {
       userChallenged: email,
       time: time,
       score: score,
-      hasBeenBeated: false,
       userCreator: user,
     })
     const userToUpdated = await User.findByIdAndUpdate(user,{$push:{challengesCreated:newChallenge}},{new:true})
