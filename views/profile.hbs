@@ -1,18 +1,3 @@
-
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{{picture}}" alt="user image profile">
-  <div class="card-body">
-    <h5 class="card-title">USER: {{name}}</h5>
-    <p class="card-text">Wana change your profile pic, click below</p>
-    <form action="/profile-picture" enctype="multipart/form-data" method="post">
-
-      <input type="file" name="image" id="imageURL"/>
-      <input type="submit" id="submit"/>
-    </form>
-  </div>
-</div>
-
-
 <a href="/game/create"><button type="button" class="btn btn-success">Go Play</button>
 </a>
 
@@ -21,15 +6,55 @@
 
 <a href="/challenge/readAll"><button type="button" class="btn btn-info">my challenges</button>
 </a>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{picture}}" alt="user image profile">
+        <div class="card-body">
+          <h5 class="card-title">USER: {{name}}</h5>
+          <p class="card-text">Wana change your profile pic, click below</p>
+          <form action="/profile-picture" enctype="multipart/form-data" method="post">
 
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+            <input type="file" name="image" id="imageURL"/>
+            <input type="submit" id="submit"/>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <form action="/signup-user" method="post">
+        {{#if errorMessage}}
+          <div class="alert alert-danger" role="alert">
+              {{errorMessage}}
+          </div>
+        {{/if}}
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script type="text/javascript">
   $("#submit").hide();
-  $("#imageURL").on("change", function(){
-      $("#submit").show();
+  $("#imageURL").on("change", function() {
+    $("#submit").show();
   })
-
 </script>
