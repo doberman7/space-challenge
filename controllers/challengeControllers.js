@@ -1,6 +1,6 @@
 const Challenge = require('../models/Challenge.Model')
 const User = require('../models/User')
-
+const { emailSendChallenge} = require('../config/nodemailer')
 
 exports.createChallenge = async (req, res) => {
   let {
@@ -56,7 +56,6 @@ exports.readAllChallenges = async (req, res) => {
 
 }
 
-
 exports.viewChallenge = async (req, res) => {
 
     try {
@@ -76,7 +75,6 @@ exports.updateChallenge = async (req, res) => {
   const id = req.session.passport.user
   const user = await User.findById(id)
   const idChallenge = req.params.id
-  console.log(email);
   const challengeUpdated = await Challenge.findByIdAndUpdate(
     //DONT UPDATE EMAIL
     idChallenge, {   time,  score, userChallenged:email },{new:true})
@@ -93,4 +91,18 @@ exports.deleteChallenge = async (req, res) => {
   //mostrar challenges
   const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
   res.render('challenges/challengeList',{challenges})
+}
+
+exports.sendChallengeEmil = async (req, res)=>{
+  const idUser = req.session.passport.user
+  const user = await User.findById(idUser)
+  //cómo encontrar esto
+  const idChallenge = req.params.id
+  console.log(idChallenge);
+  const challenge = await Challenge.findById(idChallenge)
+  //send mail
+  await emailSendChallenge(challenge.userChallenged, challenge)
+  //mostrar challenges
+  const challenges = await Challenge.find({ idChallenger: user }).populate("userCreator")
+  res.render('challenges/challengeList',{challenges,infoFlash:"Challenge send"})
 }

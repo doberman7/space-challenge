@@ -37,7 +37,7 @@ exports.emailRegistro = (email, name) => {
   })
 }
 
-exports.emailSendChallenge = (name, email, challenge) => {
+exports.emailSendChallenge = ( email, challenge) => {
   return transporter.sendMail({
     from: 'ivanrubioangeles@hotmail.com',
     to: email,

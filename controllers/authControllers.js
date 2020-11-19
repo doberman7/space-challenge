@@ -119,8 +119,6 @@ exports.editProfile = async (req, res) => {
 exports.deleteProfile = async (req, res) => {
   const userId = req.session.passport.user
   const user = await User.findById(userId)
-  console.log(user);
   let userDeleted = await User.deleteOne({ _id: userId });
-  console.log("DELETED",userDeleted);
   res.redirect('/')
 }
