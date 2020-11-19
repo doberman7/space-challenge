@@ -16,8 +16,8 @@
           <p class="card-text">Wana change your profile pic, click below</p>
           <form action="/profile-picture" enctype="multipart/form-data" method="post">
 
-            <input type="file" name="image" id="imageURL"/>
-            <input type="submit" id="submit"/>
+            <input type="file" name="image" id="imageURL" />
+            <input type="submit" id="submit" />
           </form>
         </div>
       </div>
@@ -27,7 +27,7 @@
       <form action="/editProfile" method="post">
         {{#if errorMessage}}
           <div class="alert alert-danger" role="alert">
-              {{errorMessage}}
+            {{errorMessage}}
           </div>
         {{/if}}
         <div class="form-group">
@@ -46,7 +46,32 @@
         <button type="submit" class="btn btn-primary">Change my info</button>
       </form>
       <br>
-      <a href="/deleteProfile"><button type="button" class="btn btn-danger">Delete Profile</button></a>
+      <!-- Button trigger modal -->
+      <a href="/deleteProfile">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+          Delete Profile
+        </button>
+      </a>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
