@@ -1,4 +1,7 @@
-Bienvenido a S P A C E C H A L L E N G E
+Bienvenido a
+
+S P A C E C H A L L E N G E
+
 Space Challenge  es una Aplicación que te permite crear retos espaciales y enviarlos a tus amigos
 
 Cuentas para DEMO
