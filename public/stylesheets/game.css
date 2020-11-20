@@ -14,10 +14,14 @@
 
 #profileBody{
   color: white;
-  background-image: url(../images/img/bg-signup.jpg);
+  background-image: url(../images/profile.jpg);
 }
 
 #myChallengeBody{
   /* color: white; */
   background-image: url(../images/myChallengeBody.png);
+}
+#login{
+  color: white;
+  background-image: url(../images/login.jpg);
 }
